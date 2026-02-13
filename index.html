@@ -1,176 +1,357 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shoaib | DevOps Engineer</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Shoaib — DevOps Engineer</title>
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(120deg, #0f172a, #1e293b);
-  color: white;
-}
-
-/* layout */
-.container {
-  width: 90%;
-  margin: auto;
-  padding: 20px;
-}
-
-/* hero */
-.hero {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 60px;
-}
-
-/* glass effect */
-.card {
-  background: rgba(255,255,255,0.05);
-  padding: 25px;
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(0,0,0,0.3);
-}
-
-/* profile image */
-.hero img {
-  width: 170px;
-  border-radius: 50%;
-  border: 3px solid #38bdf8;
-  box-shadow: 0 0 20px #38bdf8;
-}
-
-/* role text */
-.role {
-  color: #38bdf8;
-  margin: 6px 0;
-  font-weight: 500;
-}
-
-/* buttons */
-.btn {
-  display: inline-block;
-  padding: 10px 18px;
-  margin-right: 10px;
-  margin-top: 15px;
-  background: #38bdf8;
-  color: black;
-  text-decoration: none;
-  border-radius: 8px;
-  font-weight: bold;
-  transition: 0.3s ease;
-}
-
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 15px #38bdf8;
-}
-
-/* sections */
-.section {
-  margin-top: 70px;
-}
-
-/* tech icons */
-.tech img {
-  width: 65px;
-  margin-right: 20px;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.tech img:hover {
-  transform: translateY(-5px) scale(1.1);
-  filter: drop-shadow(0 0 8px #38bdf8);
-}
-
-/* list */
-ul {
-  line-height: 1.8;
-}
-
-/* responsive */
-@media(max-width:768px){
-  .hero{
-    flex-direction: column-reverse;
-    text-align: center;
+  :root{
+    --bg-1: #0f172a;
+    --bg-2: #0b2545;
+    --accent: #06b6d4; /* teal like */
+    --muted: #94a3b8;
+    --card: rgba(255,255,255,0.04);
+    --glass-blur: 8px;
+    --radius: 12px;
+    --max-width: 1100px;
   }
-  .hero img{
-    margin-bottom: 20px;
+
+  /* Reset + base */
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%);
+    color: #e6eef8;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+    padding:40px 20px;
+    display:flex;
+    justify-content:center;
   }
-}
+
+  .site {
+    width:100%;
+    max-width:var(--max-width);
+  }
+
+  /* Header / top bar */
+  header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:28px;
+  }
+  .brand {
+    display:flex;
+    gap:12px;
+    align-items:center;
+  }
+  .brand .logo {
+    width:48px; height:48px; border-radius:10px;
+    background:linear-gradient(135deg,var(--accent),#7c3aed);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 18px rgba(3,7,18,0.6);
+    color:#06202b;font-weight:700;font-size:18px;
+  }
+  .brand h1 {font-size:18px; margin:0; font-weight:600; color:#fff}
+  .brand small {display:block;color:var(--muted);font-weight:400;font-size:12px;margin-top:2px}
+
+  nav a{
+    color: #cfeffd;
+    text-decoration:none;
+    margin-left:14px;
+    font-weight:600;
+    font-size:14px;
+  }
+  nav a:hover { color: white; text-decoration:underline; }
+
+  /* layout grid for hero + details */
+  .grid {
+    display:grid;
+    grid-template-columns: 1fr 340px;
+    gap:28px;
+    align-items:start;
+  }
+  @media(max-width:960px){
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  /* main hero card */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding:24px;
+    backdrop-filter: blur(var(--glass-blur));
+    box-shadow: 0 8px 30px rgba(2,6,23,0.55);
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .hero-main {
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+  }
+  .hero-left {
+    flex:1;
+    min-width:0;
+  }
+
+  .hero-left h2 {
+    margin:0 0 8px 0;
+    font-size:26px;
+    letter-spacing: -0.3px;
+  }
+  .hero-left p.lead {
+    margin:0 0 16px 0;
+    color:var(--muted);
+    font-size:15px;
+  }
+
+  /* role badges (fixed lines, not animated) */
+  .roles {
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin:8px 0 12px;
+  }
+  .role {
+    background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+    padding:8px 12px;
+    border-radius:999px;
+    font-weight:600;
+    color:var(--accent);
+    font-size:13px;
+    border: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .cta {
+    margin-top:14px;
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+  .btn {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:14px;
+  }
+  .btn--primary {
+    background: linear-gradient(90deg,var(--accent), #7c3aed);
+    color:#041014;
+    box-shadow: 0 8px 22px rgba(6,182,212,0.12);
+  }
+  .btn--ghost {
+    background: transparent;
+    border:1px solid rgba(255,255,255,0.06);
+    color:#e6eef8;
+  }
+  .btn:focus { outline: 3px solid rgba(6,182,212,0.12); outline-offset: 2px; }
+
+  /* avatar card on right */
+  .profile-card {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:14px;
+  }
+  .profile-card img {
+    width:170px;
+    height:170px;
+    object-fit:cover;
+    border-radius:18px;
+    border: 3px solid rgba(255,255,255,0.06);
+    box-shadow: 0 12px 40px rgba(2,6,23,0.6);
+  }
+  .profile-meta h3 { margin:0; font-size:18px; }
+  .profile-meta p { margin:0; color:var(--muted); font-size:13px; }
+
+  /* sections area */
+  .sections { margin-top:22px; display:flex; flex-direction:column; gap:18px; }
+
+  .section-title { font-size:16px; margin:0 0 12px 0; color:#dff7fb; font-weight:700; }
+  .about p { color:var(--muted); margin:0; font-size:15px; }
+
+  /* tech grid */
+  .tech-grid { display:flex; gap:14px; align-items:center; flex-wrap:wrap; }
+  .tech-grid img {
+    width:68px; height:68px; padding:10px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:12px; object-fit:contain; transition:transform .20s ease, box-shadow .20s ease;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  .tech-grid img:hover { transform:translateY(-6px); box-shadow:0 12px 30px rgba(3,7,18,0.6); }
+
+  /* projects cards */
+  .projects { display:grid; grid-template-columns: repeat(2,1fr); gap:14px; }
+  @media(max-width:720px){ .projects{ grid-template-columns: 1fr; } }
+  .project {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    border-radius:12px;
+    padding:14px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
+  .project h4 { margin:0 0 8px; font-size:15px; }
+  .project p { margin:0 0 10px; color:var(--muted); font-size:14px; }
+  .project .meta { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:8px; }
+  .badge { padding:6px 8px;border-radius:999px;font-size:12px;background:rgba(255,255,255,0.03); color:var(--muted); border:1px solid rgba(255,255,255,0.02); }
+
+  /* contact / footer */
+  footer { margin-top:26px; display:flex; justify-content:space-between; align-items:center; gap:12px; color:var(--muted); font-size:13px; }
+  footer a { color:var(--accent); text-decoration:none; font-weight:600; }
+  footer a:hover { text-decoration:underline; }
+
+  /* small reveal animation (one-time) */
+  .reveal { opacity:0; transform: translateY(8px); transition: opacity 420ms ease, transform 420ms ease; }
+  .reveal.show { opacity:1; transform: translateY(0); }
 </style>
 </head>
-
 <body>
 
-<div class="container">
+<div class="site">
 
-  <!-- HERO -->
-  <div class="hero">
-
-    <div class="card">
-      <h1>Hi, I'm Shoaib 👋</h1>
-
-      <div class="role">DevOps Engineer 🚀</div>
-      <div class="role">AWS & Kubernetes Specialist ☁️</div>
-
-      <a class="btn" href="https://github.com/mohammadshoaib8" target="_blank">GitHub</a>
-      <a class="btn" href="https://www.linkedin.com/in/mohammadshoaib8" target="_blank">LinkedIn</a>
-      <a class="btn" href="resume.pdf" target="_blank">Resume</a>
+  <!-- header -->
+  <header>
+    <div class="brand">
+      <div class="logo">SM</div>
+      <div>
+        <h1>Shoaib Mohammad</h1>
+        <small>DevOps · Cloud · SRE</small>
+      </div>
     </div>
 
-    <img src="me.jpg" alt="profile">
+    <nav>
+      <a href="#projects" target="_blank" rel="noopener noreferrer">Projects</a>
+      <a href="#contact" target="_blank" rel="noopener noreferrer">Contact</a>
+      <a href="resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+    </nav>
+  </header>
 
-  </div>
+  <!-- hero grid -->
+  <main class="grid">
 
+    <!-- left: main content -->
+    <section class="card hero-main reveal" id="hero">
+      <div class="hero-left">
+        <h2>Hi, I'm Shoaib — DevOps Engineer</h2>
+        <p class="lead">I design and operate reliable, scalable cloud platforms. Focused on automation, CI/CD, Kubernetes orchestration and observability.</p>
 
-  <!-- ABOUT -->
-  <div class="section card">
-    <h2>About Me</h2>
-    <p>
-      DevOps Engineer with experience in AWS, Kubernetes and CI/CD automation.
-      I build scalable, secure and reliable infrastructure.
-    </p>
-  </div>
+        <div class="roles" aria-hidden="true">
+          <!-- Two fixed role lines (no animation) -->
+          <div class="role">DevOps Engineer 🚀</div>
+          <div class="role">AWS &amp; Kubernetes Specialist ☁️</div>
+        </div>
 
+        <div class="cta">
+          <a class="btn btn--primary" href="https://github.com/mohammadshoaib8" target="_blank" rel="noopener noreferrer">View GitHub</a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/mohammadshoaib8" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="btn btn--ghost" href="resume.pdf" target="_blank" rel="noopener noreferrer">Download Resume</a>
+        </div>
 
-  <!-- TECH STACK -->
-  <div class="section card">
-    <h2>Tech Stack</h2>
-    <div class="tech">
-      <img src="images/aws.png">
-      <img src="images/docker.png">
-      <img src="images/k8s.png">
-    </div>
-  </div>
+        <!-- sections area -->
+        <div class="sections" style="margin-top:20px;">
+          <!-- about -->
+          <div class="about reveal">
+            <div class="section-title">About</div>
+            <p>I have experience building and operating infrastructure on AWS, automating deployments with CI/CD, provisioning with Terraform and running applications on Kubernetes. I enjoy improving reliability and reducing toil through automation.</p>
+          </div>
 
+          <!-- tech -->
+          <div class="reveal">
+            <div class="section-title">Tech Stack</div>
+            <div class="tech-grid" aria-hidden="true">
+              <img src="images/aws.png" alt="AWS">
+              <img src="images/docker.png" alt="Docker">
+              <img src="images/k8s.png" alt="Kubernetes">
+              <!-- add more icons as needed -->
+            </div>
+          </div>
 
-  <!-- PROJECTS -->
-  <div class="section card">
-    <h2>Projects</h2>
-    <ul>
-      <li>EKS cluster built using Terraform</li>
-      <li>CI/CD pipeline for automated deployments</li>
-      <li>Monitoring using Prometheus & Grafana</li>
-    </ul>
-  </div>
+          <!-- projects -->
+          <div id="projects" class="reveal">
+            <div class="section-title">Selected Projects</div>
+            <div class="projects">
+              <article class="project">
+                <h4>EKS Cluster Automation</h4>
+                <p>Provisioned production-grade EKS with Terraform, automated blue/green deploys and implemented auto-scaling and central logging.</p>
+                <div class="meta">
+                  <div class="badge">Terraform · EKS</div>
+                  <div><a href="https://github.com/your-repo-eks" target="_blank" rel="noopener noreferrer">View repo</a></div>
+                </div>
+              </article>
 
+              <article class="project">
+                <h4>CI/CD Pipeline</h4>
+                <p>Built GitHub Actions pipeline to run tests, build container images and deploy to EKS using Helm — with PR previews and automatic rollbacks.</p>
+                <div class="meta">
+                  <div class="badge">GitHub Actions · Helm</div>
+                  <div><a href="https://github.com/your-repo-ci" target="_blank" rel="noopener noreferrer">View repo</a></div>
+                </div>
+              </article>
 
-  <!-- CONTACT -->
-  <div class="section card">
-    <h2>Contact</h2>
-    <p>Email: ms.shoaib2255@gmail.com</p>
-  </div>
+              <!-- add more projects -->
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- right: profile card -->
+    <aside class="card profile-card reveal" aria-label="Profile">
+      <img src="me.jpg" alt="Shoaib Mohammad">
+      <div class="profile-meta">
+        <h3>Shoaib Mohammad</h3>
+        <p>DevOps Engineer • Mumbai, India</p>
+      </div>
+
+      <div style="width:100%; margin-top:8px;">
+        <div style="display:flex; gap:8px; justify-content:center;">
+          <a class="btn btn--ghost" href="mailto:ms.shoaib2255@gmail.com" rel="noopener noreferrer">Email</a>
+          <a class="btn btn--ghost" href="https://github.com/mohammadshoaib8" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </div>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer id="contact">
+    <div>© <strong>Shoaib Mohammad</strong> — <span id="year"></span></div>
+    <div>Contact: <a href="mailto:ms.shoaib2255@gmail.com">ms.shoaib2255@gmail.com</a></div>
+  </footer>
 
 </div>
+
+<script>
+  // small helper: reveal elements when scrolled into view (one-time, subtle)
+  (function(){
+    const obs = new IntersectionObserver((entries, o)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('show');
+          o.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+    // set year
+    document.getElementById('year').innerText = new Date().getFullYear();
+  })();
+</script>
 
 </body>
 </html>
