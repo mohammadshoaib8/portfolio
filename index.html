@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shoaib Mohammad | DevOps Engineer</title>
+<title>Mohammad Shoaib | DevOps Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
@@ -30,38 +30,12 @@ body{
   animation:gradientMove 15s ease infinite;
 }
 
-/* moving gradient */
 @keyframes gradientMove{
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
 }
 
-/* floating glow circles */
-body::before, body::after{
-  content:"";
-  position:fixed;
-  width:400px;
-  height:400px;
-  border-radius:50%;
-  filter:blur(120px);
-  opacity:0.25;
-  z-index:-1;
-}
-
-body::before{
-  background:var(--accent);
-  top:-100px;
-  left:-100px;
-}
-
-body::after{
-  background:var(--accent2);
-  bottom:-120px;
-  right:-120px;
-}
-
-/* container */
 .container{
   width:90%;
   max-width:1100px;
@@ -69,7 +43,6 @@ body::after{
   padding:40px 0;
 }
 
-/* header */
 .top{
   text-align:center;
   margin-bottom:40px;
@@ -85,7 +58,6 @@ body::after{
   color:var(--muted);
 }
 
-/* hero */
 .hero{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.06);
@@ -106,7 +78,6 @@ body::after{
   font-weight:600;
 }
 
-/* buttons */
 .actions{
   margin-top:20px;
 }
@@ -137,7 +108,6 @@ body::after{
   box-shadow:0 12px 30px rgba(34,211,238,0.35);
 }
 
-/* grid */
 .grid{
   display:grid;
   grid-template-columns:300px 1fr;
@@ -148,7 +118,6 @@ body::after{
   .grid{grid-template-columns:1fr;}
 }
 
-/* profile */
 .profile{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.06);
@@ -164,7 +133,6 @@ body::after{
   box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
-/* section */
 .section{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.06);
@@ -177,7 +145,6 @@ body::after{
   margin-top:0;
 }
 
-/* tech */
 .tech{
   display:flex;
   gap:15px;
@@ -196,18 +163,19 @@ body::after{
   transform:translateY(-6px) scale(1.05);
 }
 
-/* project */
 .project{
-  margin-bottom:12px;
+  margin-bottom:18px;
 }
 
 .project h4{
-  margin:0 0 5px;
+  margin:0 0 8px;
+  color:var(--accent);
 }
 
 .project p{
-  margin:0;
+  margin:0 0 6px;
   color:var(--muted);
+  line-height:1.6;
 }
 
 footer{
@@ -223,8 +191,8 @@ footer{
 <div class="container">
 
 <div class="top">
-  <h1>Shoaib Mohammad</h1>
-  <p>DevOps · Cloud · SRE</p>
+  <h1>Mohammad Shoaib</h1>
+  <p>DevOps · Cloud · SRE · Hyderabad</p>
 </div>
 
 <div class="hero">
@@ -252,9 +220,8 @@ footer{
     <div class="section">
       <h3>About</h3>
       <p>
-        DevOps Engineer with strong experience in AWS, CI/CD,
-        Kubernetes and Infrastructure Automation.
-        Passionate about scalability, reliability and performance.
+        DevOps Engineer experienced in building resilient AWS infrastructure,
+        optimizing cost, and delivering automated CI/CD platforms for modern applications.
       </p>
     </div>
 
@@ -268,16 +235,32 @@ footer{
     </div>
 
     <div class="section">
-      <h3>Projects</h3>
+      <h3>Enterprise Experience</h3>
 
       <div class="project">
-        <h4>EKS Cluster Automation</h4>
-        <p>Provisioned and managed production-ready clusters via Terraform.</p>
+        <h4>AWS Infrastructure – ERPCA</h4>
+        <p>
+          Designed and operated highly available production infrastructure using Auto Scaling
+          and Load Balancers. Reduced database costs by 20% by migrating to PerconaDB on EC2.
+        </p>
+        <p>
+          Implemented monitoring and alerting with CloudWatch and Grafana,
+          improving visibility and cutting downtime by 30%.
+        </p>
+        <p><strong>Stack:</strong> AWS, EC2, VPC, ASG, ELB, Route53, S3, PerconaDB, CloudWatch, Grafana</p>
       </div>
 
       <div class="project">
-        <h4>CI/CD Platform</h4>
-        <p>Automated container build and deployment workflows.</p>
+        <h4>CI/CD & Kubernetes Platforms – Neochain, Dafleet, Fourpaws, Guthries</h4>
+        <p>
+          Built scalable CI/CD pipelines using Jenkins and AWS CodeBuild.
+          Containerized workloads with Docker and deployed to EKS using Helm.
+        </p>
+        <p>
+          Automated environment provisioning for QA and production,
+          accelerating release cycles and improving consistency.
+        </p>
+        <p><strong>Stack:</strong> Jenkins, CodeBuild, Docker, Kubernetes (EKS), Helm, AWS</p>
       </div>
 
     </div>
