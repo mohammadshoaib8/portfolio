@@ -9,9 +9,6 @@
 
 <style>
 :root{
-  --bg1:#0f172a;
-  --bg2:#020617;
-  --card:#0b1220;
   --accent:#22d3ee;
   --accent2:#6366f1;
   --text:#e6edf3;
@@ -24,7 +21,6 @@ body{
   margin:0;
   font-family:Inter, sans-serif;
   color:var(--text);
-  overflow-x:hidden;
   background:linear-gradient(-45deg,#0f172a,#0b1220,#111827,#020617);
   background-size:400% 400%;
   animation:gradientMove 15s ease infinite;
@@ -58,7 +54,12 @@ body{
   color:var(--muted);
 }
 
+/* hero */
 .hero{
+  display:grid;
+  grid-template-columns:1fr 220px;
+  gap:30px;
+  align-items:center;
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.06);
   padding:40px;
@@ -67,9 +68,15 @@ body{
   margin-bottom:30px;
 }
 
-.hero h2{
-  margin-top:0;
-  font-size:28px;
+@media(max-width:800px){
+  .hero{grid-template-columns:1fr; text-align:center;}
+}
+
+.hero img{
+  width:200px;
+  border-radius:20px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+  justify-self:end;
 }
 
 .role{
@@ -108,31 +115,7 @@ body{
   box-shadow:0 12px 30px rgba(34,211,238,0.35);
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:300px 1fr;
-  gap:25px;
-}
-
-@media(max-width:900px){
-  .grid{grid-template-columns:1fr;}
-}
-
-.profile{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.06);
-  padding:25px;
-  border-radius:18px;
-  text-align:center;
-}
-
-.profile img{
-  width:160px;
-  border-radius:20px;
-  margin-bottom:15px;
-  box-shadow:0 10px 40px rgba(0,0,0,0.6);
-}
-
+/* section */
 .section{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.06);
@@ -195,76 +178,56 @@ footer{
   <p>DevOps · Cloud · SRE · Hyderabad</p>
 </div>
 
+<!-- HERO WITH PHOTO RIGHT -->
 <div class="hero">
-  <h2>Hi, I'm Shoaib 👋</h2>
-  <div class="role">DevOps Engineer 🚀</div>
-  <div class="role">AWS & Kubernetes Specialist ☁️</div>
+  <div>
+    <h2>Hi, I'm Shoaib 👋</h2>
+    <div class="role">DevOps Engineer 🚀</div>
+    <div class="role">AWS & Kubernetes Specialist ☁️</div>
 
-  <div class="actions">
-    <a class="btn btn-primary" href="https://github.com/mohammadshoaib8" target="_blank">GitHub</a>
-    <a class="btn btn-outline" href="https://www.linkedin.com/in/mohammadshoaib8" target="_blank">LinkedIn</a>
-    <a class="btn btn-outline" href="resume.pdf" target="_blank">Resume</a>
+    <div class="actions">
+      <a class="btn btn-primary" href="https://github.com/mohammadshoaib8" target="_blank">GitHub</a>
+      <a class="btn btn-outline" href="https://www.linkedin.com/in/mohammadshoaib8" target="_blank">LinkedIn</a>
+      <a class="btn btn-outline" href="resume.pdf" target="_blank" download>Download Resume</a>
+    </div>
+  </div>
+
+  <img src="me.jpg" alt="profile">
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+  <h3>About</h3>
+  <p>
+    DevOps Engineer experienced in building resilient AWS infrastructure,
+    optimizing cost, and delivering automated CI/CD platforms for modern applications.
+  </p>
+</div>
+
+<!-- TECH -->
+<div class="section">
+  <h3>Tech Stack</h3>
+  <div class="tech">
+    <img src="images/aws.png">
+    <img src="images/docker.png">
+    <img src="images/k8s.png">
   </div>
 </div>
 
-<div class="grid">
+<!-- EXPERIENCE -->
+<div class="section">
+  <h3>Enterprise Experience</h3>
 
-  <div class="profile">
-    <img src="me.jpg" alt="profile">
-    <h3>Mohammad Shoaib</h3>
-    <p>Hyderabad, India</p>
+  <div class="project">
+    <h4>AWS Infrastructure – ERPCA</h4>
+    <p>Managed highly available infra with ASG & Load Balancers. Reduced DB cost by 20% using Percona on EC2.</p>
+    <p>Improved monitoring and reduced downtime by 30% using CloudWatch & Grafana.</p>
   </div>
 
-  <div>
-
-    <div class="section">
-      <h3>About</h3>
-      <p>
-        DevOps Engineer experienced in building resilient AWS infrastructure,
-        optimizing cost, and delivering automated CI/CD platforms for modern applications.
-      </p>
-    </div>
-
-    <div class="section">
-      <h3>Tech Stack</h3>
-      <div class="tech">
-        <img src="images/aws.png">
-        <img src="images/docker.png">
-        <img src="images/k8s.png">
-      </div>
-    </div>
-
-    <div class="section">
-      <h3>Enterprise Experience</h3>
-
-      <div class="project">
-        <h4>AWS Infrastructure – ERPCA</h4>
-        <p>
-          Designed and operated highly available production infrastructure using Auto Scaling
-          and Load Balancers. Reduced database costs by 20% by migrating to PerconaDB on EC2.
-        </p>
-        <p>
-          Implemented monitoring and alerting with CloudWatch and Grafana,
-          improving visibility and cutting downtime by 30%.
-        </p>
-        <p><strong>Stack:</strong> AWS, EC2, VPC, ASG, ELB, Route53, S3, PerconaDB, CloudWatch, Grafana</p>
-      </div>
-
-      <div class="project">
-        <h4>CI/CD & Kubernetes Platforms – Neochain, Dafleet, Fourpaws, Guthries</h4>
-        <p>
-          Built scalable CI/CD pipelines using Jenkins and AWS CodeBuild.
-          Containerized workloads with Docker and deployed to EKS using Helm.
-        </p>
-        <p>
-          Automated environment provisioning for QA and production,
-          accelerating release cycles and improving consistency.
-        </p>
-        <p><strong>Stack:</strong> Jenkins, CodeBuild, Docker, Kubernetes (EKS), Helm, AWS</p>
-      </div>
-
-    </div>
-
+  <div class="project">
+    <h4>CI/CD & Kubernetes Platforms</h4>
+    <p>Built pipelines with Jenkins & CodeBuild. Dockerized apps and deployed to EKS via Helm.</p>
+    <p>Automated QA & production environments for faster releases.</p>
   </div>
 
 </div>
