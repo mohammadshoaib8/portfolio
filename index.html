@@ -9,11 +9,13 @@
 
 <style>
 :root{
-  --bg:#0b1220;
-  --card:#111a2b;
+  --bg1:#0f172a;
+  --bg2:#020617;
+  --card:#0b1220;
   --accent:#22d3ee;
+  --accent2:#6366f1;
   --text:#e6edf3;
-  --muted:#9aa4b2;
+  --muted:#94a3b8;
 }
 
 *{box-sizing:border-box}
@@ -21,8 +23,42 @@
 body{
   margin:0;
   font-family:Inter, sans-serif;
-  background:radial-gradient(circle at top left,#0f172a,#020617);
   color:var(--text);
+  overflow-x:hidden;
+  background:linear-gradient(-45deg,#0f172a,#0b1220,#111827,#020617);
+  background-size:400% 400%;
+  animation:gradientMove 15s ease infinite;
+}
+
+/* moving gradient */
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* floating glow circles */
+body::before, body::after{
+  content:"";
+  position:fixed;
+  width:400px;
+  height:400px;
+  border-radius:50%;
+  filter:blur(120px);
+  opacity:0.25;
+  z-index:-1;
+}
+
+body::before{
+  background:var(--accent);
+  top:-100px;
+  left:-100px;
+}
+
+body::after{
+  background:var(--accent2);
+  bottom:-120px;
+  right:-120px;
 }
 
 /* container */
@@ -33,7 +69,7 @@ body{
   padding:40px 0;
 }
 
-/* NAV / TITLE */
+/* header */
 .top{
   text-align:center;
   margin-bottom:40px;
@@ -41,53 +77,53 @@ body{
 
 .top h1{
   margin:0;
-  font-size:32px;
+  font-size:34px;
   font-weight:800;
 }
 
 .top p{
-  margin-top:6px;
   color:var(--muted);
 }
 
-/* HERO */
+/* hero */
 .hero{
-  background:linear-gradient(145deg,#0f172a,#0b1220);
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.06);
   padding:40px;
-  border-radius:18px;
-  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+  border-radius:20px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
   margin-bottom:30px;
 }
 
 .hero h2{
   margin-top:0;
-  font-size:26px;
+  font-size:28px;
 }
 
 .role{
   color:var(--accent);
-  font-weight:600;
   margin:6px 0;
+  font-weight:600;
 }
 
 /* buttons */
 .actions{
-  margin-top:18px;
+  margin-top:20px;
 }
 
 .btn{
   display:inline-block;
   margin-right:12px;
   margin-top:10px;
-  padding:12px 18px;
-  border-radius:10px;
+  padding:12px 20px;
+  border-radius:12px;
   font-weight:600;
   text-decoration:none;
   transition:0.3s;
 }
 
 .btn-primary{
-  background:var(--accent);
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
   color:black;
 }
 
@@ -97,11 +133,11 @@ body{
 }
 
 .btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 8px 25px rgba(34,211,238,0.4);
+  transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(34,211,238,0.35);
 }
 
-/* GRID */
+/* grid */
 .grid{
   display:grid;
   grid-template-columns:300px 1fr;
@@ -109,37 +145,32 @@ body{
 }
 
 @media(max-width:900px){
-  .grid{
-    grid-template-columns:1fr;
-  }
+  .grid{grid-template-columns:1fr;}
 }
 
-/* PROFILE */
+/* profile */
 .profile{
-  background:var(--card);
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.06);
   padding:25px;
-  border-radius:16px;
+  border-radius:18px;
   text-align:center;
-  box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .profile img{
   width:160px;
   border-radius:20px;
   margin-bottom:15px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
 }
 
-.profile h3{
-  margin:5px 0;
-}
-
-/* sections */
+/* section */
 .section{
-  background:var(--card);
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.06);
   padding:25px;
-  border-radius:16px;
+  border-radius:18px;
   margin-bottom:20px;
-  box-shadow:0 10px 35px rgba(0,0,0,0.4);
 }
 
 .section h3{
@@ -155,14 +186,14 @@ body{
 
 .tech img{
   width:60px;
-  padding:8px;
-  border-radius:10px;
+  padding:10px;
+  border-radius:12px;
   background:#0b1220;
   transition:0.3s;
 }
 
 .tech img:hover{
-  transform:translateY(-5px);
+  transform:translateY(-6px) scale(1.05);
 }
 
 /* project */
@@ -191,13 +222,11 @@ footer{
 
 <div class="container">
 
-<!-- TOP -->
 <div class="top">
   <h1>Shoaib Mohammad</h1>
   <p>DevOps · Cloud · SRE</p>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <h2>Hi, I'm Shoaib 👋</h2>
   <div class="role">DevOps Engineer 🚀</div>
@@ -212,14 +241,12 @@ footer{
 
 <div class="grid">
 
-  <!-- LEFT -->
   <div class="profile">
     <img src="me.jpg" alt="profile">
     <h3>Mohammad Shoaib</h3>
     <p>Hyderabad, India</p>
   </div>
 
-  <!-- RIGHT -->
   <div>
 
     <div class="section">
